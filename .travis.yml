@@ -1,23 +1,24 @@
----
 language: node_js
 node_js:
-  - "0.12"
-
+- '0.12'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-
+- export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: xtaHB5m6IiI/tVKuMCWk6kqaGx+S01pUif2n4xda/T92guBRARkhpgfG5yuhqSKGaZg5HJoDwzTJoiiqqsAW6Fc3wt+ID8UqMtTsd4GlraRrabaJXx49FJ8CCGTAIR774YZzy5X+H3WeIwBe5qzRXvS//0n9prbvS8fWk7hUxtDPIgB/84618C21zZ3Pn/EC0lk4ES5h3XyjiwN3Sa2uTIzQtJypWPZXyCsifj6HFozkv0vkk7rD1qvJxdqyd7ff5B9/KW26w0l6k0MRYUilwokQpYbR7Wv6tdHiNjqySXO7bRG5sBAoweHuXeNHR6kmYcl1HIpoo7ekMRCEDg5coQiYy1itzogBBIOUg2dl1mzxWrTsphyBGH7D3NvrDEmQnBj24KcMo1iU014kdYXQRjs58nZf7roStdOJXzjqZUsrw0kOupwRPFpfqhMyumB8+6yFHzYuKGXHk8YMB5K/4huV1FMFW7TKU0oWm8/MQVZtNWHtI/xa5vUb+sSdQLFcjh97pJFkXtuimnAj08m8tvYKdla2fzvPn03DVPTwe5vGSSiyRkhHcuzygFfFo0f5GCAttbYdQnC60gK0Dn0WDd/Nh+bz4kKngGGFm4Go/jUjzpfKc7w6G9vJub2df/xcuhKlTzUrt5yEEc57iYojTahVM2Gu8+5aziHuVQ5BcDY=
+  app: serene-temple-70557
+  on:
+    repo: rjsteen/peepchat-ui
